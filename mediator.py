@@ -53,12 +53,31 @@ class User(Colleague):
 
 mediator = ConcreteMediator()
 
-alice = User(mediator, "Alice")
-bob = User(mediator, "Bob")
+andrew = User(mediator, "Andy")
+barbara = User(mediator, "Barbara")
+christine = User(mediator, "Christine")
 
-mediator.set_user1(alice)
-mediator.set_user2(bob)
+mediator.set_user1(andrew)
+mediator.set_user2(barbara)
 
-alice.send("Hello, Bob!")
+andrew.send("Hello, Barbara!")
+time.sleep(1)
+barbara.send("Hi, Andy!")
+
 time.sleep(2)
-bob.send("Hi, Alice!")
+
+mediator.set_user1(andrew)
+mediator.set_user2(christine)
+
+andrew.send("Hello, Christine!")
+time.sleep(1)
+christine.send("Good morning, Andrew.")
+
+time.sleep(2)
+
+mediator.set_user1(barbara)
+mediator.set_user2(christine)
+
+barbara.send("Hi, Chris!")
+time.sleep(1)
+christine.send("Good morning, Barbara.")
